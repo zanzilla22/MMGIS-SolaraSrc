@@ -1,7 +1,7 @@
 import sys
 import subprocess
 import optparse
-from osgeo import gdal, osr
+# from osgeo import gdal, osr
 
 
 def optparse_init() -> optparse.OptionParser:
@@ -104,6 +104,7 @@ def AutoGdalTranslate(geo_extent, cols, rows, raster):
 
 
 def AutoGdal2Tiles(raster, options, outputdir):
+    print(raster)
     dem = ""
     if options.isDEMtile is True:
         dem = " --dem"
@@ -149,3 +150,6 @@ geo_extent = ReprojectCoords(extent, src_srs, tgt_srs)
 
 AutoGdalTranslate(geo_extent, cols, rows, raster)
 AutoGdal2Tiles(raster, options, args[2])
+
+def testAutoGdalTiles():
+    AutoGdal2Tiles(raster, options, args[2])
